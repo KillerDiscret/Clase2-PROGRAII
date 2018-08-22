@@ -16,6 +16,7 @@ public:
 	void set_y(int valor);
 	int get_x();
 	int get_y();
+	int suma();
 };
 Primera::Primera()
 {
@@ -45,16 +46,25 @@ int Primera::get_y()
 
 	return y;
 }
+int Primera::suma()
+{
+	int R_suma;
+	cout << "Ingrese un valor para x:" << endl;
+	cin >> x;
+	cout << "Ingrese un valor para y: " << endl;
+	cin >> y;
+	R_suma = x + y;
+	return R_suma;
+}
 
 int main()
 {
 	Primera *objt1;//define variables
 	//instanciar objetos
 	objt1 = new Primera();
-	cout << "Atributo x= " << objt1->get_x();
-	objt1->set_y(666);
-	cout << "Atributo y: " << objt1->get_y();
-
+	int resultado;
+	resultado = objt1->suma();
+	cout << "La suma es: " << resultado;
 
 
 	_getch();
