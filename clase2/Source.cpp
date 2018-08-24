@@ -12,11 +12,14 @@ private:
 public:
 	Primera();
 	~Primera();
-	void set_x(int valor);
-	void set_y(int valor);
+	void set_x(int resultado);
+	void set_y(int resultado);
 	int get_x();
 	int get_y();
 	int suma();
+	int resta();
+	int multiplicacion();
+	double Division();
 };
 Primera::Primera()
 {
@@ -28,13 +31,13 @@ Primera::~Primera()
 {
 
 }
-void Primera::set_x(int valor)
+void Primera::set_x(int resultado)
 {
-	this->x = valor;
+	this->x = resultado;
 }
-void Primera::set_y(int valor)
+void Primera::set_y(int resultado)
 {
-	y = valor;
+	y = resultado;
 }
 int Primera::get_x()
 {
@@ -49,13 +52,28 @@ int Primera::get_y()
 int Primera::suma()
 {
 	int R_suma;
-	cout << "Ingrese un valor para x:" << endl;
-	cin >> x;
-	cout << "Ingrese un valor para y: " << endl;
-	cin >> y;
 	R_suma = x + y;
 	return R_suma;
 }
+int Primera::resta()
+{
+	int R_resta;
+	R_resta = x - y;
+	return R_resta;
+}
+int Primera::multiplicacion()
+{
+	int R_multiplicacion;
+	R_multiplicacion = x*y;
+	return R_multiplicacion;
+}
+double Primera::Division()
+{
+	double R_division;
+	R_division = x*1.0 / y;
+	return R_division;
+}
+
 
 int main()
 {
@@ -63,10 +81,16 @@ int main()
 	//instanciar objetos
 	objt1 = new Primera();
 	int resultado;
-	resultado = objt1->suma();
-	cout << "La suma es: " << resultado;
-
-
+	cout << "Ingrese el valor para X: " << endl;
+	cin >> resultado;
+	objt1->set_x(resultado);
+	cout << "Ingrese el valor de Y: " << endl;
+	cin >> resultado;
+	objt1->set_y(resultado);
+	cout << "La suma es: " << objt1->suma() << endl;
+	cout << "La resta es: " << objt1->resta() << endl;
+	cout << "La multiplicacion es: " << objt1->multiplicacion() << endl;
+	cout << "La division es: " << objt1->Division() << endl;
 	_getch();
 	return 0;
 }
